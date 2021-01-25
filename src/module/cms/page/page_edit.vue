@@ -102,8 +102,8 @@
       go_back(){
         this.$router.push({
           path: '/cms/page/list', query: {
-            page: this.$route.query.page,
-            siteId:this.$route.query.siteId
+            page: Number.parseInt(this.$route.query.page || 1),
+            siteId: this.$route.query.siteId || ''
           }
         })
       },
@@ -122,7 +122,6 @@
                   });
                   //返回
                   this.go_back();
-
                 }else{
                   this.addLoading = false;
                   this.$message.error('提交失败');
@@ -149,24 +148,35 @@
       //初始化站点列表
       this.siteList = [
         {
-          siteId:'5a751fab6abb5044e0d19ea1',
-          siteName:'门户主站'
-        },
-        {
-          siteId:'102',
-          siteName:'测试站'
-        }
-      ]
+          siteId: '5a751fab6abb5044e0d19ea1',
+          siteName: '门户主站'
+        }];
       //模板列表
       this.templateList = [
         {
-          templateId:'5a962b52b00ffc514038faf7',
-          templateName:'首页'
+          templateId: '5a925be7b00ffc4b3c1578b5',
+          templateName: '课程详情页面'
         },
         {
-          templateId:'5a962bf8b00ffc514038fafa',
-          templateName:'轮播图'
-        }
+          templateId: '5a962b52b00ffc514038faf7',
+          templateName: '首页'
+        },
+        {
+          templateId: '5a962bf8b00ffc514038fafa',
+          templateName: '轮播图'
+        },
+        {
+          templateId: '5a962c16b00ffc514038fafd',
+          templateName: '分类导航'
+        },
+        {
+          templateId: '5ad9a24d68db5239b8fef199',
+          templateName: '课程详情页面测试'
+        },
+        {
+          templateId: '5aec5dd70e661808240ab7a6',
+          templateName: '课程详情正式模板'
+        },
       ]
     }
   }

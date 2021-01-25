@@ -9,9 +9,7 @@ let concat = (router) => {
 // // 导入路由规则
 import HomeRouter from '@/module/home/router'
 import CmsRouter from '@/module/cms/router'
-import CmsRouter00 from '@/module/cms00/router'
 // 合并路由规则
 concat(HomeRouter)
 concat(CmsRouter)
-concat(CmsRouter00)
 export default routes;
