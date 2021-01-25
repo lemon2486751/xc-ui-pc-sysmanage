@@ -35,13 +35,13 @@
       <el-table-column label="操作" width="120">
         <template slot-scope="page">
           <el-button
-            size="small" type="primary"
-            icon="el-icon-edit"
+            type="primary"
+            icon="el-icon-edit" circle
             @click="edit(page.row.pageId)">
           </el-button>
           <el-button
-            size="small" type="danger"
-            icon="el-icon-delete"
+            type="danger"
+            icon="el-icon-delete" circle
             @click="del(page.row.pageId)">
           </el-button>
         </template>
@@ -110,18 +110,18 @@
         })
       },
       del: function (pageId) {
-        this.$confirm('确认提交吗？', '提示', {}).then(() => {
+        this.$confirm('确认删除吗？', '提示', {}).then(() => {
           cmsApi.page_delete(pageId).then((res) => {
             console.log(res);
             if (res.success) {
               this.$message({
-                message: '提交成功',
+                message: '删除成功',
                 type: 'success'
               });
               //查询页面
               this.query()
             } else {
-              this.$message.error('提交失败');
+              this.$message.error('删除失败');
             }
           });
         });
