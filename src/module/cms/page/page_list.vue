@@ -32,17 +32,25 @@
       </el-table-column>
       <el-table-column prop="pageCreateTime" label="创建时间" width="180">
       </el-table-column>
-      <el-table-column label="操作" width="120">
+      <el-table-column label="操作" width="150">
         <template slot-scope="page">
           <el-button
+            size="small"
             type="primary"
             icon="el-icon-edit" circle
             @click="edit(page.row.pageId)">
           </el-button>
           <el-button
+            size="small"
             type="danger"
             icon="el-icon-delete" circle
             @click="del(page.row.pageId)">
+          </el-button>
+          <el-button
+            size="small"
+            type="primary"
+            icon="el-icon-info" circle
+            @click="preview(page.row.pageId)">
           </el-button>
         </template>
       </el-table-column>
@@ -126,6 +134,9 @@
           });
         });
       },
+      preview:function (pageId) {
+        window.open("http://www.xuecheng.com/cms/preview/"+pageId)
+      }
     },
     //钩子函数，页面渲染完毕后触发
     mounted() {
